@@ -1,0 +1,466 @@
+body{
+    background-color: #fff;
+    margin: auto;
+    padding: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* theme styles */
+.theme-color{
+    color: #1b6edb !important;
+}
+
+.theme-color-bg{
+    background-color: #1b6edb !important;
+}
+/* navbar area */
+.first-navbar-bg{
+    background-color: #fff;
+}
+.navbar-bg{
+    background-color: #1b6edb;
+}
+
+/* carousel area */
+.carousel-item img{
+    background: cover;
+    height: 90vh;
+}
+
+.myNav .nav-link{
+    font-size: 17px !important;
+    display: bolck;
+    color: #fff;
+    font-weight: bold !important;
+}
+
+.myNav h2{
+    font-size: 30px;
+    color: #fff;
+}
+
+.overlay{
+	background-color: #0000008a !important;
+    background-attachment: fixed !important;
+    height: 100% !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: -1 !important;
+}
+
+.carousel-indicators .active{
+    background-color: #1b6edb !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 80px;
+  width: 80px;
+  padding-top: 7px;
+  color: white;
+  outline: none;
+  background-color: #1b6edb !important;
+  background-image: none;
+  border-radius: 100%;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 40px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 40px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.carousel-caption {
+    /* bottom: 50% !important; */
+    top: 25% !important;
+    bottom: 25%;
+}
+
+.carousel-caption h1{
+    font-size: 50px;
+}
+
+@media (max-width: 768px){
+    .d-md-block {
+        display: block !important;
+    }
+}
+
+/* card section */
+.overlay-btn {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1b6edbcc;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease-in;
+  }
+
+  .show-btn {
+    background-color: #1b6edb;
+    color: #fff;
+    font-size: 15px;
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    /* -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    text-align: center;
+    padding: 12px;
+    border-radius: 0px !important;
+  }
+
+  /* .show-btn:hover{
+    color: #fff;
+    background-color: #000;
+  } */
+
+  /* .card:hover .overlay-btn {
+    bottom: 0;
+    height: 100%;
+  } */
+
+ .card{
+    border: 0px !important;
+    background-color: #fff !important;
+    transition: transform .2s;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px !important;
+
+  }
+
+  .myCard:hover{
+    transform: scale(1.05);
+    box-shadow: 8px 4px 8px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .card:hover .show-btn{
+    background-color: #000;
+    color: #fff;
+    transition: all .7s;
+  }
+
+  .card-body-bg{
+    background-color: #1b6edbcc;
+    color: #fff !important;
+  }
+
+  .my-card-body{
+    margin: 0 !important;
+    padding: 15px 0px 0px 0px !important;
+  }
+
+  .my-card-body h6{
+    font-size: 11px !important;
+    color: #636363 !important;
+    text-align: center;
+  }
+
+  .card-title{
+    color: #494949;
+  }
+
+  .item-price{
+    font-size: 22px !important;
+    font-weight: 600;
+    color: #494949;
+  }
+
+  /* about area */
+
+  .about-banner{
+      background-image: url('/images/backgrounds/about-banner-2.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: local;
+      width: 100%;
+      height: 250px;
+      z-index: -10 !important;
+  }
+
+  .about-banner h2{
+      margin-top: 30px;
+      letter-spacing: 1px;
+  }
+
+  .about-banner p{
+      margin-top: 25px;
+  }
+
+  .about-banner a{
+      text-decoration: none;
+      list-style: none;
+  }
+
+  .universal-btn{
+    background-color: #1b6edb;
+    padding: 15px 0px 15px 15px;
+    color: #fff !important;
+    font-size: 17px;
+    font-weight: normal;
+  }
+
+
+   .about-banner span{
+      background-color: #1b6edb;
+      padding: 15px 15px 15px 0px;
+      font-size: 17px;
+      color: #202020;
+  }
+
+  .ps{
+      color: #757575;
+      line-height: 35px;
+      font-size: 14px;
+  }
+
+  .border-left{
+      border-left: 5px solid#000 !important;
+      transition: all .5s ease-in;
+  }
+
+  .border-left:hover{
+      border-left: 5px solid#1b6edb !important;
+      transition: all .5s ease-out;
+  }
+
+  /* contact style area */
+
+  .contact-info{
+    padding: 20px;
+    background: rgba(0, 53, 68, 0.1);
+  }
+
+  .contact-info ul, li{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+  }
+
+  .contact-info ul li, a{
+    color: #4e4e4e;
+    font-size: 14px;
+  }
+
+  .contact-info uli li{
+    text-decoration: none;
+  }
+
+  .contact-info li a:hover{
+      text-decoration: none;
+    color: #1b6edb;
+    padding-left: 10px;
+    transition: ease-in-out .5s;
+}
+
+ .contact-info-form{
+    padding: 20px;
+  }
+
+  .contact-info-form input::placeholder{
+      color: #a8a7a7;
+  }
+
+  .contact-info-form textarea::placeholder{
+      color: #a8a7a7;
+  }
+
+
+
+  /* Footer style area */
+
+  footer{
+      background-color: #202020;
+  }
+
+  footer  .border-bottom{
+      border-bottom: 3px solid #1b6edb !important;
+  }
+
+  .f-p{
+      padding: 15px 0px 15px;
+      color: #cccccc;
+  }
+
+  .ico a{
+      border: 2px solid#cccccc;
+      padding: 12px;
+      margin-left: 5px;
+      margin-right: 5px;
+      color: #cccccc !important;
+      text-decoration: none;
+      font-size: 17px;
+      width: 50px;
+      height: 50px;
+  }
+
+  .links{
+    padding: 15px 0px 15px;
+  }
+
+  .links li{
+      list-style-type: none;
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+
+  .links li a{
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+      letter-spacing: 2px;
+  }
+
+  .links li a:hover{
+      color: #1b6edb;
+      padding-left: 10px;
+      transition: ease-in-out .5s;
+  }
+
+  .links li p{
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 17px;
+  }
+
+  .links li p a{
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 17px;
+  }
+
+  /* editional css for shoping cart*/
+
+  .qty-font a{
+      position: relative;
+      top: 20px !important;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+  }
+
+  .qty-font span{
+      position: relative;
+      top: 17px !important;
+  }
+
+  .cart-table{
+      z-index: 100 !important;
+  }
+
+  .cart-table thead{
+    font-size: 20px;
+  }
+
+  .minus{
+      font-size: 30px !important;
+  }
+
+  .checkout-btn{
+      color: white;
+      background-color: #1b6edb;
+      font-size: 20px;
+  }
+
+  .checkout-btn:hover{
+      background-color: #000;
+  }
+
+  .price{
+      font-weight: bold;
+      font-size: 16px;
+  }
+
+  .thumbnail img{
+      width: 100%;
+      height: 250px;
+  }
+
+  .product-image{
+      width: 100%;
+      height: 270px;
+  }
+
+  .thumbnail .description{
+      color: #7f7f7f7f;
+  }
+
+  .show-input input{
+    display: none;
+  }
+
+  .show-input:hover input{
+    display: block;
+  }
+
+  .badge{
+    position: relative;
+    top: -10px;
+  }
+
+  /* Order Section */
+
+  .order-table{
+      background-color: #fff !important;
+      border-radius: 10px;
+      padding: 1px;
+      box-shadow: 3px 3px 3px 3px #88888870;
+  }
+
+  .order-table th{
+      font-size: 18px;
+  }
+
+  /* .my-product {
+    position: relative;
+} */
+.my-product > a {
+    cursor:pointer;
+}
+.my-flex {
+    padding: 20px 40px 20px 20px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    background-color: #fff;
+    text-align: left;
+    border-top: 5px solid rgb(231, 97, 120);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    position: absolute;
+    display: block;
+    width: 95%;
+    top: -9999px;
+    left: 0;
+}
+
+.my-product:hover .my-flex {
+    top: 100%;
+}
+
+.my-flex li a{
+    font-size: 16px !important;
+    line-height: 35px !important;
+}
+
+.my-flex .border-bottom{
+    border-bottom: 2px solid #1b6edb !important;
+}
+
+
+
+
+
