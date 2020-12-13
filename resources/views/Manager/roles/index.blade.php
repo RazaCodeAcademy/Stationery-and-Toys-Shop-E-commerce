@@ -1,5 +1,5 @@
 @extends('layouts\manager-master')
-@section('title', 'Manage Employee')
+@section('title', 'Manage Roles')
 
 @section('content')
 
@@ -19,32 +19,26 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="theme-color-bg text-white text-center py-2 mt-3">Employees Detail</h2>
-                    <div class="d-flex">
-                        <div class="ml-auto">
-                            <a href="{{ route('employees.create') }}" class="btn btn-primary">Add New Employee</a>
-                        </div>
-                    </div>
-                    @if ($employees)
+                    <h2 class="theme-color-bg text-white text-center py-2 mt-3">Roles Detail</h2>
+                    <a href="{{ route('roles.create') }}" class="btn btn-primary">Add New Role</a>
+                    @if ($roles)
                         <table class=" table w-100 order-table table-responsive-sm rounded my-4">
                             <thead>
                                 <th>#</th>
-                                <th class="w-25">UserName</th>
-                                <th>Email</th>
-                                <th>Joining</th>
+                                <th class="w-25">Name</th>
+                                <th>Create At</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
-                                @foreach ($employees as $employee)
+                                @foreach ($roles as $role)
                                     <tr>
-                                        <td class="align-middle">{{ $employee->id }}</td>
-                                        <td class="align-middle">{{ $employee->name }}</td>
-                                        <td class="align-middle">{{ $employee->email }}</td>
-                                        <td class="align-middle">{{ $employee->created_at }}</td>
+                                        <td class="align-middle">{{ $role->id }}</td>
+                                        <td class="align-middle">{{ $role->name }}</td>
+                                        <td class="align-middle">{{ $role->created_at }}</td>
                                         <td class="align-middle">
                                             <div class="d-flex">
-                                                <a href="{{ route('employees.show', $employee->id) }}" class="btn btn-success mr-1">Show</a>
-                                                <form action="{{ route('employees.destroy', $employee->id) }}" method="post">
+                                                <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success mr-1">Show</a>
+                                                <form action="{{ route('roles.destroy', $role->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>

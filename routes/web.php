@@ -35,7 +35,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 */
 Route::group(['prefix' => 'manager', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', 'Manager\DashboardController@index')->name('manager.dashboard.index');
-    Route::resource('/categories', 'Admin\CategoryController');
+    Route::resource('/roles', 'Manager\RoleController');
     Route::resource('/products', 'Admin\ProductController');
     Route::resource('/sales', 'Admin\SalesController');
     Route::get('/orders/completed', 'Admin\OrderController@completedOrders')->name('orders.completed');
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'manager', 'middleware' => 'auth'], function () {
 | Admin Routes
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:web', 'can:isAdmin']], function () {
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');
     Route::resource('/categories', 'Admin\CategoryController');
     Route::resource('/products', 'Admin\ProductController');

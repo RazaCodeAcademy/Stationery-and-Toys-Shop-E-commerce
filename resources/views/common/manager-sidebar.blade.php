@@ -11,9 +11,9 @@
                     <i class="fa fa-home nav__icon" aria-hidden="true"></i>
                     <span class="nav__name">Dashboard</span>
                 </a>
-                <a href="{{ route('categories.index') }}" class="nav__link">
-                    <i class="fa fa-list-alt nav__icon" aria-hidden="true" title="Categories"></i>
-                    <span class="nav__name">Categories</span>
+                <a href="{{ route('roles.index') }}" class="nav__link">
+                    <i class="fa fa-list-alt nav__icon" aria-hidden="true" title="Roles"></i>
+                    <span class="nav__name">Roles</span>
                 </a>
                 <a href="{{ route('products.index') }}" class="nav__link">
                     <i class="fa fa-shopping-bag nav__icon" aria-hidden="true" title="Products"></i>
