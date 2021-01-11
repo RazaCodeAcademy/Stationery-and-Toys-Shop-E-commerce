@@ -29,5 +29,15 @@ class AuthServiceProvider extends ServiceProvider
             $roles = $user->roles->pluck('name')->toArray();
             return in_array('Admin', $roles);
         });
+
+        Gate::define('isManager', function($user){
+            $roles = $user->roles->pluck('name')->toArray();
+            return in_array('Manager', $roles);
+        });
+
+        Gate::define('isCustomer', function($user){
+            $roles = $user->roles->pluck('name')->toArray();
+            return in_array('Customer', $roles);
+        });
     }
 }

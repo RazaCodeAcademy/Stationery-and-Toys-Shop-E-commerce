@@ -23,10 +23,6 @@
                     <i class="fa fa-tags nav__icon" aria-hidden="true" title="Sales"></i>
                     <span class="nav__name">Sales</span>
                 </a>
-                <a href="{{ route('messanger.index') }}" class="nav__link">
-                    <i class="fa fa-envelope nav__icon" aria-hidden="true" title="Inbox"></i>
-                    <span class="nav__name">Inbox</span>
-                </a>
                 <a href="{{ route('orders.index') }}" class="nav__link">
                     <i class="fas fa-chart-pie nav__icon" aria-hidden="true" title="Orders"></i>
                     <span class="nav__name">Orders</span>

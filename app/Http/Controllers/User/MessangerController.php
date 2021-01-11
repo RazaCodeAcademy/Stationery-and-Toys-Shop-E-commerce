@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Message;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,9 +18,12 @@ class MessangerController extends Controller
      */
     public function index()
     {
-        $customer = User::find(5);
-        $messages = Message::orderBy('created_at', 'DESC')->where('receiver_id', $customer->id)->get();
-        return view('User.inbox.index', compact('customer', 'messages'));
+        $admins = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'Admin');
+            }
+        )->get();
+        return view('User.inbox.index', compact('admins'));
     }
 
     /**
@@ -45,7 +49,7 @@ class MessangerController extends Controller
         $messages->receiver_id = $request->receiver_id;
         $messages->message = $request->message;
         $messages->save();
-        return redirect()->route('user.messanger.index');
+        return redirect()->route('user.messanger.show', $request->receiver_id);
     }
 
     /**
@@ -56,7 +60,16 @@ class MessangerController extends Controller
      */
     public function show($id)
     {
-        //
+        $admin = User::find($id);
+        $messages = Message::orderBy('created_at', 'DESC')->where([
+            ['sender_id', '=', $id],
+            ['receiver_id', '=', Auth::id()],
+        ])->orWhere([
+            ['sender_id', '=',  Auth::id()],
+            ['receiver_id', '=', $id],
+        ])->get();
+        
+        return view('User.inbox.show', compact('admin', 'messages'));
     }
 
     /**

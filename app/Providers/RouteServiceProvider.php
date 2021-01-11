@@ -21,7 +21,23 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/user/profile';
+    // public $path = '';
+    // public function redirectTo() {
+    //     $role = Auth::user()->role; 
+    //     switch ($role) {
+    //         case 'Admin':
+    //             $path = '/admin/dashboard';
+    //             break;
+    //         case 'Manager':
+    //             $path = '/manager/dashboard';
+    //             break; 
+          
+    //         default:
+    //             $path = '/user/dashboard'; 
+    //           break;
+    //     }
+    // }
+    public const HOME = '/home';
 
     /**
      * Define your route model bindings, pattern filters, etc.

@@ -36,22 +36,24 @@
                             </thead>
                             <tbody>
                                 @foreach ($employees as $employee)
-                                    <tr>
-                                        <td class="align-middle">{{ $employee->id }}</td>
-                                        <td class="align-middle">{{ $employee->name }}</td>
-                                        <td class="align-middle">{{ $employee->email }}</td>
-                                        <td class="align-middle">{{ $employee->created_at }}</td>
-                                        <td class="align-middle">
-                                            <div class="d-flex">
-                                                <a href="{{ route('employees.show', $employee->id) }}" class="btn btn-success mr-1">Show</a>
-                                                <form action="{{ route('employees.destroy', $employee->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @if ($employee->roles[0]->name === "Admin")
+                                        <tr>
+                                            <td class="align-middle">{{ $employee->id }}</td>
+                                            <td class="align-middle">{{ $employee->name }}</td>
+                                            <td class="align-middle">{{ $employee->email }}</td>
+                                            <td class="align-middle">{{ $employee->created_at }}</td>
+                                            <td class="align-middle">
+                                                <div class="d-flex">
+                                                    <a href="{{ route('employees.show', $employee->id) }}" class="btn btn-success mr-1">Show</a>
+                                                    <form action="{{ route('employees.destroy', $employee->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr> 
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

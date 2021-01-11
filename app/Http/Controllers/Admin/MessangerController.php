@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use DB;
 use App\Message;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,10 @@ class MessangerController extends Controller
      */
     public function index()
     {
-        $customers = User::all();
+        $customers = Auth::user()->messages()
+            ->orderBy('created_at', 'desc')
+            ->get(['sender_id', 'message', 'created_at'])
+            ->unique('sender_id');
         return view('Admin.inbox.index', compact('customers'));
     }
 
@@ -56,7 +60,13 @@ class MessangerController extends Controller
     public function show($id)
     {
         $customer = User::find($id);
-        $messages = Message::orderBy('created_at', 'DESC')->where('receiver_id', $id)->get();
+        $messages = Message::orderBy('created_at', 'DESC')->where([
+            ['sender_id', '=', $id],
+            ['receiver_id', '=', Auth::id()],
+        ])->orWhere([
+            ['sender_id', '=',  Auth::id()],
+            ['receiver_id', '=', $id],
+        ])->get();
         return view('Admin.inbox.show', compact('customer', 'messages'));
     }
 

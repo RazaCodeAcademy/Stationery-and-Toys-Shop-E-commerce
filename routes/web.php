@@ -21,10 +21,11 @@ Route::get('/contact', 'IndexController@contact');
 |--------------------------------------------------------------------------
 */
 
-Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth:web', 'can:isCustomer']], function () {
     Route::get('/profile', 'User\ProfileController@index')->name('user.index');
     Route::get('/dashboard', 'User\ProfileController@create')->name('user.create');
     Route::get('/messanger', 'User\MessangerController@index')->name('user.messanger.index');
+    Route::get('/messanger/{id}', 'User\MessangerController@show')->name('user.messanger.show');
     Route::post('/messanger', 'User\MessangerController@store')->name('user.messanger.store');
 });
 
@@ -33,7 +34,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 | Manager Routes
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'manager', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'manager', 'middleware' => ['auth:web', 'can:isManager']], function () {
     Route::get('/dashboard', 'Manager\DashboardController@index')->name('manager.dashboard.index');
     Route::resource('/roles', 'Manager\RoleController');
     Route::resource('/products', 'Admin\ProductController');

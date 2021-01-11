@@ -20,7 +20,7 @@
           </a>
       </li>
       <li>
-          <img src="{{ asset(Auth::user()->image == true ? Auth::user()->image :  '/images/my-image.jpeg') }}" alt="" width="40" height="40" class="rounded-circle mr-4">
+          <img src="{{ asset(Auth::user()->image == true ? ('uploads/employee/images/' . Auth::user()->image) :  '/images/my-image.jpeg') }}" alt="" width="40" height="40" class="rounded-circle mr-4">
       </li>
     </ul>
   </nav>

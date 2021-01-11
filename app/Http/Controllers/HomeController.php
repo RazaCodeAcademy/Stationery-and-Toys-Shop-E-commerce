@@ -25,13 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $oldCart = Session::get('cart');
-        // $cart = new Cart($oldCart);
-        // $total = $cart->totalPrice;
-        // if(!Session::has('cart')){
-        //     return 'abc';
-        // }
-
         if(Session::has('cart')){
             return redirect()->route('checkout');
         }

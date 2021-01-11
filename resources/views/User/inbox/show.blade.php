@@ -4,32 +4,56 @@
 @section('content')
 
 <div class="container-fluid">
+    <section class="bg-info">
+        <div class="d-flex">
+            <div class="align-middle">
+                <img src="{{ asset('/images/my-image.jpeg') }}" alt="" class="rounded-circle my-2 ml-2" width="70" height="70">
+            </div>
+            <div class="mt-4 ml-4 ">
+                <h3 class="ml-4 text-white">
+                    {{ $admin->name }}
+                </h3>  
+            </div>
+        </div>
+    </section>
     <div class="row">
         <div class="col-md-12">
-            <section class="bg-light px-4" style="height: 80vh; overflow-y: auto;">
-                <div class="py-3">
+            <section class="myChat" style="height: 70vh; overflow-y: auto; background-image: url(/images/chat_background.png); background-repeat:no-repeat; background-size:cover;">
+                <div class="">
                     @foreach ($messages as $message)
                         @if(Auth::Id() == $message->sender_id)
-                            <h5 class="bg-info mb-3 ml-auto w-50 rounded py-2  text-center"><p>{{ Auth::user()->name }}</p><strong>{{ $message->created_at }}</strong><br><span>{{ $message->message }}</span></h5>
+                            <div class="col-md-6 col-sm-11 ml-auto">
+                                <p class="text m-0"><strong>{{ Auth::user()->name }}</strong></p>
+                                <div class="theme-color-bg mb-3 rounded p-2 text-white" style="position: relative;">
+                                    <span style="word-wrap: break-word">{{ $message->message }}</span>
+                                    <span style="position: absolute; right:0; margin-right:5px;">{{ $message->created_at->toTimeString() }}</span>
+                                </div>
+                            </div>
                         @else
-                            <h5 class="bg-primary mr-auto w-50 rounded py-2  text-center"><p>{{ Auth::user()->name }}</p><strong>{{ $message->created_at }}</strong><br><span>{{ $message->message }}</span></h5>
+                            <div class="col-md-6 col-sm-11">
+                                <p class="m-0 text-right"><strong>{{  $admin->name }}</strong></p>
+                                <div class="bg-light mb-3 rounded p-2" style="position: relative">
+                                    <span>{{ $message->message }}</span>
+                                    <span style="position: absolute; right:0; margin-right:5px;">{{ $message->created_at->toTimeString() }}</span>
+                                </div>
+                            </div>
                         @endif
                     @endforeach
                 </div>
             </section>
-            <section class="bg-success pt-4">
-                <form action="{{ route('messanger.store') }}" method="post">
+            <section class="theme-color-bg pt-4">
+                <form action="{{ route('user.messanger.store') }}" method="post">
                     @csrf
-                    <div class="row">
-                        <div class="col-md-6 offset-2">
-                            <input type="hidden" name="receiver_id" value="{{ $customer->id }}">
+                    <div class="row no-gutters">
+                        <div class="col-md-6 col-sm-10 col-10 offset-md-3">
+                            <input type="hidden" name="receiver_id" value="{{ $admin->id }}">
                             <div class="form-group">
-                                <input id="my-input" class="form-control" type="text" name="message">
+                                <input id="my-input" class="form-control ml-1" type="text" name="message" placeholder="Type message..." style="border-radius: 50px">
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-sm-2 col-2">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-dark">Send</button>
+                                <button type="submit" class="btn btn-light rounded-circle ml-3"><i class="fa fa-paper-plane" style="font-size: 17px" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </div>

@@ -4,10 +4,17 @@
 @section('content')
 
 <div class="container-fluid">
-    <section class="bg-info py-3">
-        <h3 class="ml-4 text-white">
-            {{ $customer->name }}
-        </h3>
+    <section class="bg-info">
+        <div class="d-flex">
+            <div class="align-middle">
+                <img src="{{ asset('/images/my-image.jpeg') }}" alt="" class="rounded-circle my-2 ml-2" width="70" height="70">
+            </div>
+            <div class="mt-4 ml-4 ">
+                <h3 class="ml-4 text-white">
+                    {{ $customer->name }}
+                </h3>  
+            </div>
+        </div>
     </section>
     <div class="row">
         <div class="col-md-12">
